@@ -1,0 +1,256 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+@import "fonts";
+
+$white-color: #fff;
+$black-color: #000;
+$grey-color: #ADADAD;
+$yellow-color: #FFEE00;
+$orange-color: #FCB500;
+$bg-main-color: #FCDA28;
+$bg-black-color: #111;
+
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	color: $white-color;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	font-family: rubik;
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top; max-width: 100%;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 0px 65px;
+}
+
+.btn {
+	display: block;
+	margin: 0 auto;
+	max-width: 257px;
+	background: $orange-color;
+	border-radius: 7px;
+	font-size: 18px;
+	line-height: 21px;
+	padding: 16px 56px;
+	transition: .5s;
+	span {
+		color: $black-color;
+		background-image: linear-gradient($black-color, $black-color);
+		background-position: 0% 100%;
+		background-repeat: no-repeat;
+		background-size: 0% 2px;
+		transition: background-size .5s;
+	}
+	&:hover {
+		background: $bg-main-color;
+		span {
+			background-size: 100% 2px;
+		}
+	}
+}
+
+@import "header";
+
+/* main */
+
+.main {
+	&__inner {
+		min-height: 792px;
+		background-color: $bg-main-color;
+		position: relative;
+		padding-top: 95px;
+		padding-bottom: 95px;
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 144px;
+		line-height: 152px;
+		color: $white-color;
+		text-transform: uppercase;
+		margin-bottom: 25px;
+		z-index: 100;
+		position: relative;
+	}
+
+	&__descr {
+		max-width: 658px;
+		font-size: 24px;
+		line-height: 28px;
+		color: $black-color;
+		margin-bottom: 120px;
+	}
+
+	&__subtitle {
+		font-weight: 700;
+		font-size: 36px;
+		line-height: 43px;
+		color: $black-color;
+		text-transform: uppercase;
+		margin-bottom: 15px;
+	}
+
+	&__text {
+		font-size: 18px;
+		line-height: 21px;
+		color: $black-color;
+		max-width: 350px;
+	}
+
+	&__img {
+		position: absolute;
+	}
+
+	&__img--ginger {
+		width: 496px;
+		height: 409px;
+		top: 265px;
+		right: 65px;
+	}
+
+	&__img--nootris {
+		width: 224px;
+		height: 635px;
+		top: 65px;
+		right: 160px;
+	}
+
+	&__img--lemon {
+		width: 533px;
+		height: 463px;
+		right: 243px;
+		top: 440px;
+	}
+}
+
+/* discont */
+
+.discont {
+	&__inner {
+		min-height: 925px;
+		background-color: $bg-black-color;
+		padding: 110px 0px;
+		text-align: center;
+	}
+
+	&__title {
+		max-width: 865px;
+		margin: 0 auto;
+		font-size: 48px;
+		line-height: 57px;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 85px;
+		span {
+			display: block;
+			color: $orange-color;
+		}
+	}
+
+	&__price {
+		margin-bottom: 60px;
+	}
+
+	&__price-old {
+		font-size: 36px;
+		line-height: 43px;
+		color: $grey-color;
+		margin-right: 30px;
+		text-decoration: line-through;
+	}
+
+	&__price-new {
+		font-size: 48px;
+		line-height: 57px;
+	}
+
+	&__advantages {
+		max-width: 1087px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 65px;
+	}
+
+	&__column {
+		min-height: 286px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__img {
+		&--ginger {
+			width: 193px;
+			height: 168px;
+		}
+		&--nootris {
+			width: 480px;
+			height: 160px;
+		}
+		&--virus {
+			width: 192px;
+			height: 160px;
+		}
+	}
+
+	&__text {
+		font-size: 18px;
+		line-height: 21px;
+		span {
+			display: block;
+			color: $orange-color;
+		}
+		&-del {
+			font-size: 36px;
+			line-height: 43px;
+			margin-bottom: 8px;
+		}
+		&-price {
+			font-size: 24px;
+			line-height: 28px;
+			color: $orange-color;
+		}
+	}
+}
